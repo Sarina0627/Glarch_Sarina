@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>マイページ</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mypage.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   <script src="https://kit.fontawesome.com/4e7bde2936.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="d-flex flex-column flex-md-row align-items-center 　border-bottom shadow-sm">
+  <div class="my-0 mr-md-auto">
+    <img id="logo" src="glarch_logo_final.png" alt="ロゴ">
+    <p id="title">Glarch</p>
+  </div>
+
+
+    <nav class="menu_bar">
+      <div class="menu">
+        <a href="/index" class="menu_icon"><i class="fas fa-home" class="far fa-user"></i></a>
+        <p class="menu_letter">HOME</p>
+      </div>
+       <div class="menu">
+        <a href="/favorite_page"  class="menu_icon"><i class="far fa-bookmark"></i></a>
+        <p class="menu_letter">SAVE</p>
+      </div>
+       <div class="menu">
+        <a href="/create_post"  class="menu_icon"><i class="far fa-edit"></i></a>
+        <p class="menu_letter">POST</p>
+      </div>
+       <div class="menu">
+        <a href="/mypage"  class="menu_icon"> <i class="far fa-user" style="color:#eeeeee;" ></i></a>
+        <p class="menu_letter">USER</p>
+      </div>
+    </nav>
+    <div>
+    <form action="/serch" method="get">
+      <label for="serch_btn"><i class="fas fa-search"></i></label>
+      <input type="submit" id="serch_btn" value="検索">
+      <input type="text" placeholder="検索する" name="serch_word" class="serch_word">
+    </form>
+  </div>
+    <div class="my-2 my-md-0 mr-md-3">
+      <% unless session[:user]%>
+        <div class="login_nav">
+          <a href="/signin">Login</a> <a href="/signup">Sign Up</a><br>
+          <p>Not Logged In</p>
+        </div>
+      <% else %>
+        <p id="user"><i style="color:<%= User.find(session[:user]).color %>" class="fas fa-circle"></i><a href="/mypage" class="user_name"><%= User.find(session[:user]).username%></a></p>
+        <a class="sign_out" href="/signout">ログアウト</a>
+      <% end %>
+    </div>
+</header>
+
+<div class="timeline">
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+
+      <% @mycontributions.each do |mycontribution|%>
+        <div class = " contribution contents card col-lg-6 mb-2 mx-5">
+          <div class="card-body">
+            <%# < href="/<%=contribution.user.try(:id)%>
+            <%# /userspage"> %>
+            <div class="info_box">
+              <span><%= mycontribution.created_at.strftime("%Y-%m-%d <br> %X").in_time_zone("UTC").in_time_zone("Tokyo") %></span>
+            </div>
+
+            <div class="img_box">
+              <% unless mycontribution.img.empty? %>
+                  <img class="img img-fluid rounded" src="<%= mycontribution.img%>">
+              <% end %>
+            </div>
+            <p class="contribution_body"><%= mycontribution.body %></p><br>
+
+            <div>
+              <p class="category">#<%= mycontribution.typecategory.try(:type_name)%> #<%= mycontribution.areacategory.try(:area_name)%></p>
+
+            </div>
+
+            <div class="edit">
+              <a href="/edit/<%=mycontribution.id%>"><i class="far fa-edit edit_icon"></i></a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

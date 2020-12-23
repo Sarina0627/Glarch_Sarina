@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Glarch</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   <script src="https://kit.fontawesome.com/4e7bde2936.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="d-flex flex-column flex-md-row align-items-center 　border-bottom shadow-sm">
+  <div class="my-0 mr-md-auto">
+    <img id="logo" src="glarch_logo_final.png" alt="ロゴ">
+    <p id="title">Glarch</p>
+  </div>
+
+    <nav class="menu_bar">
+      <div class="menu">
+        <a href="/index" class="menu_icon"><i class="fas fa-home" style="color:#eeeeee;" class="far fa-user"></i></a>
+        <p class="menu_letter">HOME</p>
+      </div>
+       <div class="menu">
+        <a href="/favorite_page"  class="menu_icon"><i class="far fa-bookmark"></i></a>
+        <p class="menu_letter">SAVE</p>
+      </div>
+       <div class="menu">
+        <a href="/create_post"  class="menu_icon"><i class="far fa-edit"></i></a>
+        <p class="menu_letter">POST</p>
+      </div>
+       <div class="menu">
+        <a href="/mypage"  class="menu_icon"> <i class="far fa-user"></i></a>
+        <p class="menu_letter">USER</p>
+      </div>
+    </nav>
+    <div>
+    <form action="/serch" method="get">
+      <label for="serch_btn"><i class="fas fa-search"></i></label>
+      <input type="submit" id="serch_btn" value="検索">
+      <input type="text" placeholder="検索する" name="serch_word" class="serch_word">
+    </form>
+  </div>
+
+    <div class="my-2 my-md-0 mr-md-3">
+      <% unless session[:user]%>
+        <div class="login_nav">
+          <a href="/signin">Login</a> <a href="/signup">Sign Up</a><br>
+          <p>Not Logged In</p>
+        </div>
+      <% else %>
+        <p id="user"><i style="color:<%= User.find(session[:user]).color %>" class="fas fa-circle"></i><a href="/mypage" class="user_name"><%= User.find(session[:user]).username%></a></p>
+        <a class="sign_out" href="/signout">ログアウト</a>
+      <% end %>
+    </div>
+</header>
+
+<div class="main">
+
+  <div class="sub_content">
+    <div class="sub_menu_bar">
+      <a class="sub_menu_title" href="/timeline"><i class="fas fa-caret-right"></i>投稿一覧</a><br>
+      <p class="sub_menu_title"><i class="fas fa-caret-right"></i>留学タイプ</p>
+      <% @type_categories.each do |type_category| %>
+        <a  class="sub_menu" href="/typecategory/<%= type_category.id %>"> <%= type_category.type_name %></a><br>
+      <% end %>
+
+      <% if @type_category_name.present? %>
+        <h2><%= @type_category_name %></h2>
+      <% end %>
+      <p class="sub_menu_title"><i class="fas fa-caret-right"></i>エリア</p>
+      <% @area_categories.each do |area_category| %>
+        <a  class="sub_menu" href="/areacategory/<%= area_category.id %>"> <%= area_category.area_name %></a><br>
+      <% end %>
+      <% if @area_category_name.present? %>
+        <h2><%= @area_category_name %></h2>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="content">
+    <%# <img class="map" src="map.png"> %>
+    <div id="map" class="mx-auto"></div>
+  </div>
+</div>
+
+     <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35, lng: 130.644},
+          zoom: 2.2
+        });
+
+        const markers = <%= @markers %>
+        markers.forEach(marker => {
+          marker = JSON.parse(marker);
+          map_marker = new google.maps.Marker({
+            position: new google.maps.LatLng(marker.coordinates[0], marker.coordinates[1]),
+            map: map,
+            title: 'Here!',
+            animation: google.maps.Animation.DROP,
+            icon: "https://maps.google.com/mapfiles/ms/micons/ltblue-dot.png"
+          });
+          let infoWindowContent = `<div class="sample">
+                                  <a href="/${marker.user_id}/userspage">${marker.user_name}</a><br>
+                                  ${marker.created_at}<br>
+                                  ${marker.body}<br>
+                                  <a href="/typecategory/${marker.typecategory_id}">#${marker.typecategory_name}</a>
+                                  <a href="/areacategory/${marker.areacategory_id}">#${marker.areacategory_name}</a>
+                                  </div>`;
+          let infoWindow = new google.maps.InfoWindow({content: infoWindowContent});
+          infoWindow.open(map, map_marker);
+        });
+
+      };
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgkuEfb4JqmXCgeRHVc8vBlSFjSsULceY&callback=initMap" async defer></script>
+
+</body>
+</html>

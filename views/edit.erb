@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>編集ページ</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+<body>
+　<form action="/edit/<%=@renew.id%>" method="post">
+    <input type="text" name="body" placeholder="<%=@renew.body%>"><br>
+    <input type="submit" value="更新">
+  </form>
+</body>
+</html>

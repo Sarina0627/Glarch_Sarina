@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Glarch</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="signup.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   <script src="https://kit.fontawesome.com/4e7bde2936.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="main">
+  <a href="/index" class="home"><img id="logo" src="glarch_logo_final.png" alt="ロゴ">
+    <p id="title">Glarch</p></a>
+  <div class="signup">
+    <h2>Register</h2>
+    <div class="column">
+      <form action="/signup" method="post">
+       <label for="introduction">ユーザーネーム</label><br>
+        <input type="text" name="username" class="form"/><br>
+         <label for="introduction">パスワード</label><br>
+        <input type="password" name="password" class="form"><br>
+        <label for="introduction">パスワードの確認</label><br>
+        <input type="password" name="password_confirmation" class="form" ><br>
+        <label for="introduction">在住都市</label><br>
+        <input type="text" name="area" class="form"><br>
+        <label for="introduction">ひとこと</label><br><input type="text" name="introduction" class="form"/><br>
+        <label for="color">好きな色:</label>
+        <div class="cp_ipselect cp_sl02">
+          <select name="color" id="color">
+            <option value="gold">gold</option>
+            <option value="orange">orange</option>
+            <option value="sandybrown">sandybrown</option>
+            <option value="darksalmon">darksalmon</option>
+            <option value="lightcoral">lightcoral</option>
+            <option value="pink">pink</option>
+            <option value="thistle">thistle</option>
+          </select><br>
+        </div>
+        <label for="signup" class="signup_button">Sign Up</label>
+          <input id="signup" type="submit" value="新規登録">
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

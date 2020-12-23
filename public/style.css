@@ -1,0 +1,420 @@
+/* リセットCSS */
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+p{
+  color:#393e46;
+}
+
+h3{
+  color:#393e46;
+}
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+/* ヘッダー */
+header{
+  background-color: #37b2ce;
+  position:relative;
+}
+
+.menu_bar{
+  margin-right:0px;
+}
+
+#title{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 5px;
+  float:left;
+}
+
+#logo{
+  margin-top: 8px;
+  margin-left: 35px;
+  width:35px;
+  height:35px;
+  float:left;
+}
+
+.menu{
+  float: left;
+  color:#393e46;
+  margin-right: 50px;
+  padding: 12px 47px 0px 47px;
+}
+
+.menu_icon{
+  padding-left: 4px;
+  font-size: 22px;
+  color:#393e46;
+}
+
+.menu_letter{
+  font-size:4px;
+}
+
+
+.menu:hover{
+  background-color:rgba(57,62,70,0.3);
+  color:#1b2a49;
+}
+
+#user{
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+
+.user_name{
+  font-size: 20px;
+  line-height: 25px;
+  text-decoration: none;
+  color:#393e46;
+}
+
+.user_name:hover{
+  text-decoration: none;
+  color:#1b2a49;;
+}
+
+.fa-circle{
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.login_nav{
+  margin-top: 20px;
+  margin-right: 30px;
+}
+
+.login_nav a{
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+.login_nav a:hover{
+  color:#393e46;
+}
+
+.login_nav p{
+  padding-left: 3px;
+}
+
+.sign_out{
+  padding-left:15px;
+  margin-bottom: 5px;
+}
+
+.sign_out:hover{
+  text-decoration: none;
+}
+
+/* 検索機能 */
+#serch_btn{
+  display: none;
+}
+
+.serch_word{
+  background-color: transparent;
+  border:1px solid #393e46;
+  padding-top:8px;
+  padding-bottom: 3px;
+  padding-left:15px;
+  border-radius: 20px;
+  color:#393e46;
+  margin-right: 20px;
+  }
+
+.serch_word:hover{
+  background-color: transparent;
+  border:1px solid #393e46;
+  border-radius: 20px;
+}
+
+input::placeholder{
+  color:#393e46;
+}
+
+.fa-search{
+  color:#393e46c2;
+  font-size: 26px;
+  /* position: absolute;
+  top:28px;
+  left:238px; */
+}
+
+/* メインページ */
+.main{
+  width: 100%;
+  height: 720px;
+}
+
+/* メインコンテンツ */
+.content{
+  height: 100%;
+  width: 80%;
+  float: left;
+  /* background-image: url("map.png"); */
+  background-size: cover;
+}
+
+.map{
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+      height: 720px;
+      width: 100%;
+      /* margin-left: 20px;
+      margin-top: 25px;
+      margin-bottom: 10px; */
+    }
+
+/* サブコンテンツ(サブメニュー) */
+
+.sub_content{
+  background-color: #eeeeee;
+  height: 100%;
+  width: 20%;
+  float:left;
+}
+
+.sub_menu_bar{
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.sub_menu_title{
+  font-size: 20px;
+  margin-top: 15px;
+  color:#393e46;
+}
+
+.sub_menu{
+  color:#393e46;
+  margin-left: 8px;
+  margin-top: 12px;
+}
+
+a.sub_menu_title:hover{
+  color:#33a8c3;
+  text-decoration: none;
+}
+
+.sub_menu:hover{
+  color:#33a8c3;
+  text-decoration: none;
+}
+
+/* タイムライン */
+.timeline{
+  background-color: #1b2a49;
+}
+
+/* 各投稿 */
+.info_box{
+  height:50px;
+}
+
+.contribution{
+  background-color:rgba(241, 241, 241);
+  margin-top:30px;
+}
+
+.card-body{
+  width:600px;
+  margin: 0 auto;
+}
+
+.user_icon{
+  color:#33a8c3;
+  font-size: 18px;
+  padding-right: 6px;
+  font-weight: bold;
+}
+
+.username{
+  color:#696969;
+  text-decoration: none;
+  float: left;
+}
+
+.username:hover{
+  text-decoration: none;
+}
+
+.date{
+  float: right;
+  color:#504e4e;
+}
+
+.img_box{
+    vertical-align: middle;
+    border-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.img{
+  vertical-align: middle;
+  }
+
+.contribution_body{
+  margin-top: 25px;
+  margin-bottom: -20px;
+  color:#363636;
+}
+
+.category{
+  color:#33a8c3;
+  text-decoration: none;
+  float: left;
+}
+
+.category:hover{
+  color:#33a8c3;
+  text-decoration: none;
+}
+
+/* 保存 */
+.save{
+  float: right;
+}
+
+.save_icon{
+  font-size: 20px;
+  color:#696969;
+}
+
+.save_length{
+  font-size: 17px;
+  color:#696969;
+}
+
+
+.fav{
+  border: none;
+}
+
+/* コメント */
+.comment_box{
+  margin-top: 50px;
+  position: relative;
+}
+
+.send_comment{
+  background-color: transparent;
+  border:1px solid #696969;
+  width:100%;
+  padding-top:5px;
+  padding-bottom: 5px;
+  padding-left:35px;
+  border-radius:8px;
+  margin-left:3px;
+}
+
+.send_comment::placeholder{
+  color:#696969;
+}
+
+.open_comment{
+  border-top:0.5px solid #696969bb;
+  margin-top: 40px;
+  padding-top: 10px;
+  color:#696969;
+  font-size: 15px;
+  padding-left:10px;
+}
+
+.send_button{
+  border: none;
+}
+
+.reaction_box{
+  margin:10px auto;
+  width:90%;
+  height:40px;
+  border: 1px solid #afaeae5d;
+  padding:10px;
+  border-radius: 20px;
+  background-color: #afaeae5d;
+}
+
+.reaction_user_info{
+  float: left;
+}
+
+.reaction_user_name{
+  color:#696969;
+  font-size: 18;
+}
+
+.reaction_user_icon{
+  color:#696969;
+  padding-right:10px;
+  padding-left: 15px;
+  font-size: 18;
+}
+
+.fa-paper-plane{
+  color:#696969;
+  position: absolute;
+  top:10px;
+  left:15px;
+}
+
+.reaction_comment{
+  font-size:15px;
+  color:#363636;
+  float: left;
+  padding-left: 70px;
+}
+
+/* メモボックス */
+.fa-times{
+  font-size: 20px;
+  color:#696969;
+}
+
+.memo_box{
+  margin:10px auto;
+  width:90%;
+  height:40px;
+  border: 1px solid #afaeae5d;
+  padding:10px;
+  border-radius: 20px;
+  background-color: #afaeae5d;
+}
+
+.memo{
+  font-size:15px;
+  color:#363636;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+/* 編集 */
+.edit{
+  float: right;
+}
+
+.edit_icon{
+  font-size: 20px;
+  color:#696969;
+}
+
+/* テスト */
+.test1{
+  background-color: turquoise;
+}

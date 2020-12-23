@@ -1,0 +1,139 @@
+h2{
+	color:#ffffff;
+	font-weight: 300;
+	padding-left:235px;
+	padding-bottom:10px;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+.main{
+  width:100%;
+  height:900px;
+	background-size: cover;
+	background-color: #1b2a49;
+  /* background-image: url("signup.jpg") */
+}
+
+.create_post{
+  width:600px;
+  height:250px;
+  margin:0px auto;
+  padding-top: 40px;
+}
+
+.column{
+	background-color: rgba(241, 241, 241, 0.164);
+  /* background-color: rgba(35,26,21,0.25); */
+  border-radius: 10px;
+  padding:30px;
+}
+
+.form{
+  border: none;
+	border-bottom:1px solid #ffffff;
+  background-color: transparent;
+	margin-bottom:15px;
+	margin-left:20px;
+  height: 22px;
+	width:90%;
+	color:#ffffff;
+}
+
+
+.form:focus{
+	background-color: transparent;
+}
+
+label{
+  color:#ffffff;
+  margin-top: 20px;
+	margin-left:20px;
+}
+
+.form-control{
+  background-color: transparent;
+  border-color: #837c78;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.fa-file-image{
+  font-size: 20px;
+}
+
+#file{
+  display: none;
+}
+
+/* セレクトボックス */
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin-left:20px;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl02 {
+	position: relative;
+	border: 1px solid #ffffff;
+	border-radius: 2px;
+	background-color: transparent;
+}
+.cp_ipselect.cp_sl02::before {
+	position: absolute;
+	top: 1.1em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #ffffff;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl02:after {
+	position: absolute;
+	top: 0;
+	right: 2.5em;
+	bottom: 0;
+	width: 1px;
+	content: '';
+	border-left: 1px solid #bbbbbb;
+}
+.cp_ipselect.cp_sl02 select {
+	padding: 8px 38px 8px 8px;
+	color: #ffffff;
+}
+
+/* ポストボタン */
+#post{
+  display: none;
+}
+
+.post_button{
+  border: 2px solid #ffffff;
+	padding:10px 15px;
+	margin-top:20px;
+	margin-left:220px;
+}
+
+.post_button:hover{
+	border: 2px solid #a8bde0;
+	color:#a8bde0;
+}

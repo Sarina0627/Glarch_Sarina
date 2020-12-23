@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ユーザーズページ</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="/index">ホームに戻る</a>
+
+  <p><%= @name %>のページ</p>
+  <p>在住国：<%= @area %></p>
+  <p>ひとこと：<%= @introduction %></p>
+  <% @userscontributions.each do |userscontribution|%>
+    <div class="card col-lg-6 mb-2 mx-5">
+      <%= userscontribution.created_at.strftime("%Y-%m-%d <br> %X").in_time_zone("UTC").in_time_zone("Tokyo") %>
+      <% unless userscontribution.img.empty? %>
+        <p><img src="<%= userscontribution.img%>"></p>
+      <% end %>
+      <p style="color:orange"><%= userscontribution.body %></p>
+      <p style="color:blue"><%= userscontribution.typecategory.try(:type_name)%></p>
+      <p style="color:blue"><%= userscontribution.areacategory.try(:area_name)%></p>
+    </div>
+
+  <% end %>
+</body>
+</html>
